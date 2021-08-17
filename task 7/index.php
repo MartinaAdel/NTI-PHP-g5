@@ -21,7 +21,7 @@ $op = mysqli_query($con, $sql);
     <title>My Posts</title>
 
     <!-- Latest compiled and minified Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- custom css -->
     <style>
@@ -47,7 +47,7 @@ $op = mysqli_query($con, $sql);
 <body>
 
     <!-- container -->
-    <div class="container">
+    <div class="container-fluid">
 
 
         <div class="page-header">
@@ -62,16 +62,19 @@ $op = mysqli_query($con, $sql);
 
         ?>
 
-            <div class="card">
-                <h5 class="card-header"><?php echo $data['title']; ?></h5>
-
-                <img class="card-img-top" src="upload/<?php echo $data['image']; ?>" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text"><?php echo $data['content']; ?></p>
-               
+            <div class="card m-3">
+                <div class="card-header">
+                    <h5><?php echo $data['Title']; ?></h5>
                 </div>
 
-              
+                <div class="card-body">
+                    <img class="card-img-top" src="uploads/<?php echo $data['image']; ?>" alt="Card image cap">
+
+                    <p class="card-text"><?php echo $data['content']; ?></p>
+
+                </div>
+
+
             </div>
 
         <?php } ?>
@@ -92,47 +95,3 @@ $op = mysqli_query($con, $sql);
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-      Task 
-
-      posts table [title,content,image]
-
-      CURD SYSTEM .... [CREATE,READ];
-      FORM [TITLE,CONTENT,IMAGE] [CREATE]
-
-      DISPLAY [TITLE,CONTENT,IMAGE ]  // TABLE 
-
-
-
-      delete , edit ..... []
-
-
-
-
-
-    TASK 
-
-
-    users Table (name,email,password)
-
-    read users & change password .. .
-
-
-
-
-
-
-
- -->

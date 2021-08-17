@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
   if (empty($title)) {
 
     $errors['title'] = " Field Required";
-  } elseif (!preg_match("/^[a-zA-Z\s*']+$/", $name)) {
+  } elseif (!preg_match("/^[a-zA-Z\s*']+$/", $title)) {
 
     $errors['title'] = "Invalid String";
   }
@@ -71,13 +71,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 
 
-    $sql = "update post set title='$title' , content='$content', image='$imageName'  where id = $id";
+    $sql = "INSERT INTO `post`(`Title`, `content`, `image`) VALUES ('$title','$content','$imageName')";
 
     $op =  mysqli_query($con, $sql);
 
     if ($op) {
 
-      echo 'data updated';
+      echo 'data inserted';
     } else {
       echo 'Error Try Again';
     }
@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 <html lang="en">
 
 <head>
-  <title>Update</title>
+  <title>add</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -112,8 +112,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 <body>
 
   <div class="container">
-    <h2>Update</h2>
-    <form method="post" action="edit.php?id=<?php echo $data['id']; ?>" enctype="multipart/form-data">
+    <h2>add post</h2>
+    <form method="post" action="add post.php" enctype="multipart/form-data">
 
 
 
@@ -135,7 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 
 
-      <button type="submit" class="btn btn-primary">Update</button>
+      <button type="submit" class="btn btn-primary">add</button>
     </form>
   </div>
 
